@@ -27,16 +27,16 @@ def calculate(request):
     buoyantForce = math.pi * (outerRadiusCoat**2/144*hswater)
     submergedWeight = totalWeight - buoyantForce
     subGravity = totalWeight/buoyantForce
-    result = {'pipInsideRadius': pipInsideRadius,
+    result = {'pipInsideRadius': round(pipInsideRadius, 2),
               'pipOutsideRadius': pipOutsideRadius,
               'outerRadiusCoat': outerRadiusCoat,
-              'totalPipeline': totalPipeline,
-              'pipeWeightUnit': pipeWeightUnit,
-              'coatUnit': coatUnit,
-              'contentsLength': contentsLength,
-              'totalWeight': totalWeight,
-              'buoyantForce': buoyantForce,
-              'submergedWeight': submergedWeight,
-              'subGravity': subGravity
+              'totalPipeline': round(totalPipeline, 2),
+              'pipeWeightUnit': round(pipeWeightUnit, 2),
+              'coatUnit': round(coatUnit, 2),
+              'contentsLength': round(contentsLength, 2),
+              'totalWeight': round(totalWeight, 2),
+              'buoyantForce': round(buoyantForce, 2),
+              'submergedWeight': round(submergedWeight, 2),
+              'subGravity': round(subGravity, 2)
               }
     return render(request, 'result.html', {'result': result})
